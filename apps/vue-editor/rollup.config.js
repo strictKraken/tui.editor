@@ -32,12 +32,18 @@ const bannerText = [
 export default [
   {
     input: 'src/index.js',
-    output: {
-      dir: 'dist/esm',
-      format: 'es',
-      sourcemap: false,
-    },
+    output: [
+      {
+        dir: 'dist/esm',
+        format: 'es',
+        sourcemap: false,
+      },
+      {
+        dir: 'dist',
+        format: 'umd',
+      }
+    ],
     plugins: [vue({}), commonjs(), nodeResolve(), transpile(), banner(bannerText)],
-    external: ['vue', '@toast-ui/editor', '@toast-ui/editor/dist/toastui-editor-viewer'],
+    external: ['vue'],
   },
 ];
